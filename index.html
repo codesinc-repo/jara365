@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Bet on cricket soccer tennis. Best online sports betting website." />
+    <link rel="apple-touch-icon" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Jara365</title>
+    <link href="css/desktop.css" rel="stylesheet" />
+    <link href="css/2.a535f58d.chunk.css" rel="stylesheet" />
+    <link href="css/main.0cfd252b.chunk.css" rel="stylesheet" />
+    <!-- <link href="https://gamex.bet/static/css/mobile.css" id="device-type" rel="stylesheet"> -->
+    </link>
+  </head>
+  <body class="gamex">
+    
+
+    <div id="root">
+        <div class="top">
+          <div class="header full-wrap">
+          <h1>
+              <a href="/" style="width: 166px; margin-top: -23px; height: 88px; background-repeat: no-repeat; background-size: 91px; alt:Avatar;">The Jara365</a>
+            </h1>
+            <div id="searchWrap" class="search-wrap">
+              <div>
+                <input id="searchInput" class="search-input" type="text" placeholder="Search Events">
+                <button id="searchClear" class="search-clear" style="display: none;"></button>
+              </div>
+              <div id="searchResult" class="suggestion-wrap" style="display: none;">
+                <ul id="searchList" style="display: none;">
+                  <li id="noMatching" style="display: none;">
+                    <p class="no-matching">No events found matching ...</p>
+                  </li>
+                  <li id="resultTemplate" style="display: none;">
+                    <a>.</a>
+                  </li>
+                  <li id="result_{{match.matchId}}">.</li>
+                </ul>
+              </div>
+            </div>
+            <ul class="login-wrap">
+              <li class="user error">
+                <label for="loginName" style="color: rgb(33, 33, 33);"></label>
+                <input id="loginName" type="text" placeholder="Username" value="">
+              </li>
+              <li>
+                <label for="password" style="color: rgb(33, 33, 33);"></label>
+                <input id="password" type="password" placeholder="Password" value="">
+              </li>
+              <li class="valid-code">
+                <label for="validCode" style="color: rgb(33, 33, 33);"></label>
+                <input id="validCode" type="text" placeholder="Validation" maxlength="4">
+                <div id="captcha" style="position: absolute; bottom: 15px; right: 5px; width: 40px; height: 13px; top: 2px;">
+                  <canvas id="captch" width="70" height="50" style="width: inherit;"></canvas>
+                </div>
+              </li>
+              <li>
+                <input id="valid" name="valid" type="hidden" value="1af3fcd7-a5d3-4b01-876e-d336fb343a85">
+              </li>
+              <li>
+                <a id="loginBtn" class="btn-login">Login <img class="icon-login" src="data:image/gif;base64,R0lGODdhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" alt="1548051109718">
+                </a>
+              </li>
+              <li>
+                <a class="btn-signup">Sign up</a>
+              </li>
+              <li id="errorMsg" class="error" style="display: none;"></li>
+            </ul>
+          </div>
+          <div class="menu-wrap">
+            <div class="full-wrap">
+              <ul id="tabMenu" class="menu">
+                <li>
+                  <a class="select" href="/exchange/member/home">Home</a>
+                </li>
+                <li>
+                  <a class="null" href="/exchange/member/inplay">In-Play</a>
+                </li>
+                <li>
+                  <a class="null" href="/exchange/member/multimarket">Multi Market</a>
+                </li>
+                <li>
+                  <a class="null" href="/exchange/member/cricket">
+                    <span id="tagLive" class="tag-live">
+                      <strong></strong>
+                      <span>0</span>
+                    </span>Cricket </a>
+                </li>
+                <li>
+                  <a class="null" href="/exchange/member/soccer">
+                    <span id="tagLive" class="tag-live">
+                      <strong></strong>
+                      <span>11</span>
+                    </span>Soccer </a>
+                </li>
+                <li>
+                  <a class="null" href="/exchange/member/tennis">
+                    <span id="tagLive" class="tag-live">
+                      <strong></strong>
+                      <span>10</span>
+                    </span>Tennis </a>
+                </li>
+                <li style="display: none;">
+                  <a href="/exchange/member/horseracing" class="null">Horse Racing</a>
+                </li>
+                <li class="dark_menu-li">
+                  <a href="/" target="_blank" id="casinoLoginBtn" class="casino tag-new" style="color: rgb(255, 255, 255);">Casino</a>
+                </li>
+                <li>
+                  <a href="/exchange/member/reslut" class="null">Result</a>
+                </li>
+                <li style="display: none;">
+                  <a class="null">Binary </a>
+                </li>
+                <li style="display: none;">
+                  <a href="/">MTS </a>
+                </li>
+              </ul>
+              <ul class="setting-wrap">
+                <li class="time_zone" style="display: none;">
+                  <span> Time Zone :</span> GMT+5:30
+                </li>
+                <li>
+                  <a id="oneClickSetting" class="one_click null" style="cursor: pointer;">
+                    <img src="data:image/gif;base64,R0lGODdhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" alt="One_Click">One Click Bet </a>
+                </li>
+                <li>
+                  <a id="login-trigger" class="setting" style="cursor: pointer;">Setting <img src="data:image/gif;base64,R0lGODdhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" alt="login-trigger">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="full-wrap">
+          <div id="centerColumn" class="col-center gamehall">
+            <div id="overWrap" class="over-wrap" style="height: calc(100% - 0px);">
+              <div class="kv-wrap">
+                <div class="slick-slider slidesN slick-initialized" dir="ltr">
+                  <div class="slick-list">
+                    <div class="slick-track" style="width: 10170px; opacity: 1; transform: translate3d(-4520px, 0px, 0px);">
+                      <div data-index="-1" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1130px;">
+                        <div>
+                          <div tabindex="-1" style="width: 100%; display: inline-block;">
+                            <img src="images/photo14.9c559196.png" alt="cric" style="height: 192px;">
+                          </div>
+                        </div>
+                      </div>
+                      <div data-index="0" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1130px;">
+                        <div>
+                          <div tabindex="-1" style="width: 100%; display: inline-block;">
+                            <img src="images/photo11.57248973.png" alt="cric" style="height: 192px;">
+                          </div>
+                        </div>
+                      </div>
+                      <div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1130px;">
+                        <div>
+                          <div tabindex="-1" style="width: 100%; display: inline-block;">
+                            <img src="images/photo12.0850e6e9.png" alt="cric" style="height: 192px;">
+                          </div>
+                        </div>
+                      </div>
+                      <div data-index="2" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 1130px;">
+                        <div>
+                          <div tabindex="-1" style="width: 100%; display: inline-block;">
+                            <img src="images/photo13.f7abfd98.png" alt="cric" style="height: 192px;">
+                          </div>
+                        </div>
+                      </div>
+                      <div data-index="3" class="slick-slide slick-active slick-current" tabindex="-1" aria-hidden="false" style="outline: none; width: 1130px;">
+                        <div>
+                          <div tabindex="-1" style="width: 100%; display: inline-block;">
+                            <img src="images/photo14.9c559196.png" alt="cric" style="height: 192px;">
+                          </div>
+                        </div>
+                      </div>
+                      <div data-index="4" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1130px;">
+                        <div>
+                          <div tabindex="-1" style="width: 100%; display: inline-block;">
+                            <img src="images/photo11.57248973.png" alt="cric" style="height: 192px;">
+                          </div>
+                        </div>
+                      </div>
+                      <div data-index="5" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1130px;">
+                        <div>
+                          <div tabindex="-1" style="width: 100%; display: inline-block;">
+                            <img src="images/photo12.0850e6e9.png" alt="cric" style="height: 192px;">
+                          </div>
+                        </div>
+                      </div>
+                      <div data-index="6" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1130px;">
+                        <div>
+                          <div tabindex="-1" style="width: 100%; display: inline-block;">
+                            <img src="images/photo13.f7abfd98.png" alt="cric" style="height: 192px;">
+                          </div>
+                        </div>
+                      </div>
+                      <div data-index="7" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1130px;">
+                        <div>
+                          <div tabindex="-1" style="width: 100%; display: inline-block;">
+                            <img src="images/photo14.9c559196.png" alt="cric" style="height: 192px;">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="slick-dots" style="display: block;">
+                    <li class="">
+                      <button>1</button>
+                    </li>
+                    <li class="">
+                      <button>2</button>
+                    </li>
+                    <li class="">
+                      <button>3</button>
+                    </li>
+                    <li class="slick-active">
+                      <button>4</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="gamehall-wrap-simple">
+                <a href="/" style="cursor: pointer;">
+                  <dl id="onLiveBoard" class="on_live">
+                    <dt>
+                      <p class="live_icon">
+                        <span></span> LIVE
+                      </p>
+                    </dt>
+                    <dd id="onLiveCount_CRICKET">
+                      <p>Cricket</p>
+                      <span id="count">0</span>
+                    </dd>
+                    <dd id="onLiveCount_SOCCER">
+                      <p>Soccer</p>
+                      <span id="count">11</span>
+                    </dd>
+                    <dd id="onLiveCount_TENNIS">
+                      <p>Tennis</p>
+                      <span id="count">10</span>
+                    </dd>
+                  </dl>
+                  <dl class="entrance-title">
+                    <dt>Sports</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_sports.0da533cd.png" alt="" draggable="false">
+                </a>
+                <a style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Ae Casino</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/AeDesktop.b146d765.jpeg" alt="" draggable="false">
+                </a>
+                <a style="grid-column: span 2 / auto;">
+                  <dl class="entrance-title">
+                    <dt>Ludo</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/ludo.9fa11a3e.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Evolution Casino</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/evolivecasino.67abe4b1.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" href="" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Pragmatic Play</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/Pragmatic.930ec600.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Ezugi Casino</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/ezuginew.446af7b1.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Ebets</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/ebet.7f465ebb.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Asia Gaming</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/ag.e89d2587.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half">
+                  <dl class="entrance-title">
+                    <dt>OneTouch</dt>
+                    <dd>
+                      <span>Play Now</span>
+                    </dd>
+                  </dl>
+                  <img src="images/onetouch.b3cbe677.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>betgames</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_betgames-half.46b8193e.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Super Spade</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/superspade.c31797bf.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Microgaming</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/micro.16da628d.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Caleta Gaming</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/caleta.a9906a24.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Indi Slots</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/indi.3ce45d68.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>BetSoft</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/betsoft.6bb9f3b3.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Play'n Go</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/playngoo.ba5aa05a.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Jili</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/JILI.ba2b911b.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>7 UP 7 Down</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_sevenUpDown-half.46013ac2.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Blackjack</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_blackjack-half.2207f044.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Andar Bahar</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_andarBahar-half.2897c6da.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Minesweeper</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_minesweeper-half.af957d21.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Sic Bo</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_sicbo-half.fbb214be.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Coin Toss</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_CoinToss-half.634dacc9.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Card Mutka</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_cardMatka-half.74d615bf.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>32 Card</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/32card-half.01a170be.png" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>European Roulette</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/europeanroulette.00f1f2f6.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Baccarat</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/Bacarrat.3d1c0332.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Pok deng</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/pokdeng.3d0e27d3.jpeg" alt="" draggable="false">
+                </a>
+                <a class="entrance-half" style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Card Hilo</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/cardshilow.d1f79a72.jpeg" alt="" draggable="false">
+                </a>
+                <a style="cursor: pointer;">
+                  <dl class="entrance-title">
+                    <dt>Binary</dt>
+                    <dd>Play Now</dd>
+                  </dl>
+                  <img src="images/banner_binary.14bfe742.png" alt="" draggable="false">
+                </a>
+              </div>
+              <div class="footer">
+                <div id="supportWrap" class="support-wrap">
+                  <div class="support-service">
+                    <a id="support_whatsapp" class="support-whatsapp open">
+                      <img src="data:image/gif;base64,R0lGODdhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" title="WhatsApp">
+                    </a>
+                    <a id="support_telegram" class="support-telegram null">
+                      <img src="data:image/gif;base64,R0lGODdhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" title="Telegram">
+                    </a>
+                  </div>
+                  <div class="support-info">
+                    <div id="supportDetail_whatsapp" class="support-detail open">
+                      <a class="ui-link">
+                        <span style="color: rgb(102, 102, 102); text-decoration: underline;"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="power-wrap" style="width: 109px;">
+                  <h3 style="background-image: none; line-height: 15px; color: rgb(72, 71, 69); margin-top: -5px; text-align: left;">
+                    <span>Powered by</span>
+                    <img src="data:image/gif;base64,R0lGODdhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" alt="poweredby">
+                  </h3>
+                </div>
+                <div class="browser-wrap">
+                  <img src="data:image/gif;base64,R0lGODdhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAICTAEAOw==" alt="gif">
+                  <br>Our website works best in the newest and last prior version of these browsers: <br>Google Chrome.
+                </div>
+                <ul class="policy-link" style="color: black !important;">
+                  <li>
+                    <a>Privacy Policy</a>
+                  </li>
+                  <li>
+                    <a>Terms and Conditions</a>
+                  </li>
+                  <li>
+                    <a>Rules and Regulations</a>
+                  </li>
+                  <li>
+                    <a>KYC</a>
+                  </li>
+                  <li>
+                    <a>Responsible Gaming</a>
+                  </li>
+                  <li>
+                    <a>About Us</a>
+                  </li>
+                  <li>
+                    <a>Self-exclusion Policy</a>
+                  </li>
+                  <li>
+                    <a>Underage Policy</a>
+                  </li>
+                </ul>
+                <ul class="RnR-link">
+                  <li>
+                    <a>Rules and Regulations</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="myMarketModal" tabindex="-1" role="dialog" aria-labelledby="myMarketModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true"> ×</span>
+                </button>
+                <h4 class="modal-title" id="myMarketModalLabel">My Markets </h4>
+              </div>
+              <div class="modal-body">
+                <button class="accordion">
+                  <span style="font-size: 15px; padding-right: 10px; float: right;">Exposure -&nbsp;&nbsp;</span>
+                </button>
+                <div class="panel">
+                  <table class="bets" id="myMarketTable" style="margin-top: 0px;">
+                    <thead>
+                      <tr style="border-bottom: 1px solid rgb(103, 175, 229); background: rgba(217, 220, 212, 0.57);">
+                        <th style="text-align: center;">Market Name</th>
+                        <th style="text-align: center;">Liability</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="height: 30px;"></td>
+                        <td style="height: 30px;"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+   
+    
+    <!-- <script src="https://gamex.bet/static/js/2.2a399377.chunk.js"></script>
+    <script src="https://gamex.bet/static/js/main.2b62d60c.chunk.js"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"7a091b83ba78d051","version":"2023.2.0","r":1,"token":"7e8db7fea35d41e58851372aea3dad48","si":100}' crossorigin="anonymous"></script> -->
+  </body>
+</html>
